@@ -18,4 +18,4 @@ const subscribersRouter = require('./routes/subscribers')
 app.use('/subscribers', subscribersRouter)
 
 
-app.listen(3000, () => console.log('Server Started'))
+app.listen(process.env.PORT, () => console.log('Server Started'))
