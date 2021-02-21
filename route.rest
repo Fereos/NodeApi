@@ -1,0 +1,29 @@
+GET http://localhost:3000/subscribers
+
+###
+
+GET http://localhost:3000/subscribers/603146e7049d8145305a68ff
+
+
+###
+
+POST http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+    "name" : "Melrocks TVs",
+    "subscribedToChannel" : "subscribed to channel"
+}
+
+###
+
+DELETE http://localhost:3000/subscribers/603146e2049d8145305a68fd
+
+###
+
+PATCH http://localhost:3000/subscribers/603146e7049d8145305a68ff
+Content-Type:  application/json
+
+{
+    "name" : "New Name"
+}
