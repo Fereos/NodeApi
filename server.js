@@ -1,21 +1,32 @@
-//require('dotenv') .config()
+const dotenv = require("dotenv");
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
 
-const express = require('express')
-const app = express()
-const mongoose = require('mongoose')
+//Import routes
+const subscribersRouter = require("./routes/subscribers");
+const authRouter = require("./routes/authentication");
+const privateRouter = require("./routes/route-private");
 
+dotenv.config();
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
-const db = mongoose.connection
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true , useUnifiedTopology: true}, () => 
+    console.log("Connected to Database")
+);
 
-db.on('error' , (error) => console.error(error))
-db.once('open' , () => console.log('Connected to Database'))
+const db = mongoose.connection;
 
+// Check DB Connections
+db.on("error", (error) => console.error(error));
 
-app.use(express.json())
+// Call middleware to parse only json
+app.use(express.json());
 
-const subscribersRouter = require('./routes/subscribers')
-app.use('/subscribers', subscribersRouter)
+// Route Middleware
+app.use("/subscribers", subscribersRouter);
+app.use("/api/user", authRouter);
+app.use("/api/post", privateRouter);
 
-
-app.listen(process.env.PORT, () => console.log('Server Started'))
+app.listen(process.env.PORT, () =>
+  console.log("Server Started on port : " + process.env.PORT)
+);
