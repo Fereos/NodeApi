@@ -8,7 +8,7 @@ const subscribersRouter = require("./routes/subscribers");
 const authRouter = require("./routes/authentication");
 const privateRouter = require("./routes/route-private");
 
-dotenv.config();
+//dotenv.config();
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true , useUnifiedTopology: true}, () => 
     console.log("Connected to Database")
