@@ -7,6 +7,8 @@ const mongoose = require("mongoose");
 const subscribersRouter = require("./routes/subscribers");
 const authRouter = require("./routes/authentication");
 const privateRouter = require("./routes/route-private");
+const sendMail = require("./routes/send-mail");
+
 
 //dotenv.config();
 
@@ -26,6 +28,8 @@ app.use(express.json());
 app.use("/subscribers", subscribersRouter);
 app.use("/api/user", authRouter);
 app.use("/api/post", privateRouter);
+app.use("/api/mail", sendMail);
+
 
 app.get('/', function (req, res) 
 { 
