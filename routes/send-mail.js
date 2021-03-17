@@ -13,7 +13,8 @@ router.get('/', async (req, res) => {
 
         const msg = {
             to: 'trolls.perfect.guy@gmail.com', // Change to your recipient
-            from: 'Hossein', // Change to your verified sender
+            fromname: 'React Stories', 
+            from: 'socials.melchor.pineda@gmail.com', // Change to your verified sender
             subject: 'Email Registration ',
             text: 'and easy to do anywhere, even with Node.js',
             html: '<strong>and easy to do anywhere, even with Node.js</strong>',
