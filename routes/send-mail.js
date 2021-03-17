@@ -12,11 +12,12 @@ router.get('/', async (req, res) => {
         sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
         const msg = {
-            to: 'trolls.perfect.guy@gmail.com', // Change to your recipient
-            fromname: 'React Stories', 
-            from: 'socials.melchor.pineda@gmail.com', // Change to your verified sender
-            subject: 'Email Registration ',
-            text: 'and easy to do anywhere, even with Node.js',
+            to: 'trolls.perfect.guy@gmail.com', // Change to your recipient// Change to your verified sender
+            from: {
+                email: 'socials.melchor.pineda@gmail.com',
+                name: 'React Stories'
+            },
+            subject: 'React Stories - Sample Email Registration ',
             html: '<strong>and easy to do anywhere, even with Node.js</strong>',
         }
 
