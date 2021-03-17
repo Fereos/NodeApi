@@ -27,6 +27,11 @@ app.use("/subscribers", subscribersRouter);
 app.use("/api/user", authRouter);
 app.use("/api/post", privateRouter);
 
+app.get('/', function (req, res) 
+{ 
+   res.send('Hello World');
+ })
+
 app.listen(process.env.PORT, () =>
   console.log("Server Started on port : " + process.env.PORT)
 );
